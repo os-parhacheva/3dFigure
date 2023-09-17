@@ -75,7 +75,7 @@ namespace lb2
             cam.Position = new Point3D(args.NewValue, cam.Position.Y, cam.Position.Z);
         }
 
-        // Create mesh. Set the height of the shape, the width and the number of sides at the base of the shape
+        // Create mesh. Set the height of the shape, width and number of sides at the base of the shape
         public MeshGeometry3D meshPyramid(double hight, double width, int count)
         {
             double corner=(2*Math.PI) / count;
