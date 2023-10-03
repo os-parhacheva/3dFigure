@@ -55,9 +55,6 @@ namespace lb2
             modvis.Content = new AmbientLight(Colors.White);
             viewport.Children.Add(modvis);
 
-           
-
-
             // Create the camera
             cam = new PerspectiveCamera(new Point3D(0, 0.5, 4),
                          new Vector3D(0, 0, -1), new Vector3D(0, 1.5, 0), 45);
