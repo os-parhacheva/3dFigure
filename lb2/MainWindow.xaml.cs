@@ -41,6 +41,31 @@ namespace lb2
             GeometryModel3D geomod = new GeometryModel3D();
 
             geomod.Geometry = meshPyramid(1.2,1.5,5);
+            Matrix3D matrix3D = new Matrix3D()
+            {
+                
+                M11 = 0.5,
+                M12 = 0,
+                M13 = 0,
+                M14 = 0,
+
+                M21 = -0.5,
+                M22 = 0.6,
+                M23 = 0,
+                M24 = 0,
+
+                M31 = -0.5,
+                M32 = 0,
+                M33 = 1,
+                M34 = 0,
+
+                M44 = 0.7,
+                OffsetX = 0,
+                OffsetY = 0,
+                OffsetZ = 0
+            };
+
+            geomod.Transform = new MatrixTransform3D(matrix3D);
 
             geomod.Material = new DiffuseMaterial(new SolidColorBrush(Color.FromArgb(128, 0, 255, 255)));
             geomod.BackMaterial = new DiffuseMaterial(Brushes.Gray);
@@ -62,12 +87,21 @@ namespace lb2
             Trackball tr = new Trackball();
             tr.EventSource = this;
             cam.Transform = tr.Transform;
+
+            
+
+
+
+
+
+
+
         }
-        void ScrollBarOnValueChanged(object sender,
-                           RoutedPropertyChangedEventArgs<double> args)
-        {
-            cam.Position = new Point3D(args.NewValue, cam.Position.Y, cam.Position.Z);
-        }
+        /*   void ScrollBarOnValueChanged(object sender,
+                              RoutedPropertyChangedEventArgs<double> args)
+           {
+               cam.Position = new Point3D(args.NewValue, cam.Position.Y, cam.Position.Z);
+           }*/
 
         // Create mesh. Set the height of the shape, the width and the number of sides at the base of the shape
         public MeshGeometry3D meshPyramid(double hight, double width, int count)
